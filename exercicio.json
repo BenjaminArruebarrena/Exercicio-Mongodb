@@ -1,0 +1,213 @@
+// criando database 
+use facbook 
+
+
+//criando collections 
+db.createCollection("usuarios") 
+db.createCollection("grupos") 
+db.createCollection("post") 
+db.createCollection("amigos") 
+
+
+//criando documentos das collections 
+db.usuarios.insertMany([ 
+{ 
+ "nome":"benjamin", 
+ "sobrenome":"arruebarrena", 
+ "senha":1111, 
+ "cpf":"111.111.111-11", 
+ "idade":26, 
+ "email":"benjamin.arruebarrena@gmail.com" }, 
+{ 
+ "nome":"ruth", 
+ "sobrenome":"duque", 
+ "senha":2222, 
+ "cpf":"222.222.222-22", 
+ "idade":27, 
+ "email":"ruth.duque@gmail.com" }, 
+{ 
+ "nome":"abinadi", 
+ "sobrenome":"suarez", 
+ "senha":3333, 
+ "cpf":"333.333.333-33", 
+ "idade":28, 
+ "email":"abinadi.suarez@gmail.com" }, 
+{ 
+ "nome":"jose ", 
+ "sobrenome":"genaro", 
+ "senha":4444, 
+ "cpf":"444.444.444-44", 
+ "idade":29, 
+ "email":"jose.genaro@hotmail.com" }, 
+{ 
+ "nome":"maria", 
+ "sobrenome":"gilda", 
+ "senha":5555, 
+ "cpf":"555.555.555-55",
+ "idade":30, 
+ "email":"maria.gilda@hotmail.com"} 
+]) 
+db.post.insertMany([ 
+{ 
+ "tipo":"vidio", 
+ "url":"https://www.youtube.com/watch?v=7Ilu033ydSw",  "titulo":"naturaleza", 
+ "comentarios": [ 
+ { "comentario": "que naturaleza mais bonita!",  "cpf": "555.555.555-55" 
+ }, 
+ { 
+ "comentario":"me encantan los animales",  "cpf":"222.222.222-22" 
+ }], 
+ "cpf":"111.111.111-11", 
+ "data_criaçao":"(2009, 05,22)" 
+}, 
+{ 
+ "tipo":"vidio", 
+ "url":"https://www.youtube.com/watch?v=nyXljAr9xys",  "titulo":"array em mngodb", 
+ "comentarios": [ 
+ { "comentario":"odeio a programaçao",  "cpf":"333.333.333_33" 
+ }, 
+ { 
+ "comentario":"eu adoro a programaçao",  "cpf":"444.444.444_44" 
+ }], 
+ "cpf":"222.222.222_22", 
+ "data_criaçao":"(2009, 05, 23)" 
+}, 
+{ 
+ "tipo":"video", 
+ "url":"https://www.youtube.com/watch?v=W-YW66wPXcY",  "titulo":"jogo do pubg", 
+ "comentarios": [ 
+ { 
+ "comentario":"eu semore adrei jogar esse jogo",  "cpf":"444.444.444-44" 
+ }, 
+ { 
+ "comentario":"me jogo favorito é outro",  "cpf":"555.555.555-55" 
+ }],
+ "cpf":"333.333.333-33", 
+ "data_criaçao":"(2010,06,15)" 
+}, 
+{ 
+ "tipo":"vidio", 
+ "url":"https://www.youtube.com/watch?v=Il8wdsU9dks",  "titulo":"amor", 
+ "comentarios": [ 
+ { 
+ "comentario":"eu tambem estou enamorado",  "cpf":"111.111.111-11" 
+ }, 
+ { 
+ "comentario":"o amor é o mais lindo",  "cpf":"222.222.222-22" 
+ }], 
+ "cpf":"444.444.444-44", 
+ "data_criaçao":"(2015,06,19)" 
+}, 
+{ 
+ "tipo":"vidio", 
+ "url":"https://www.youtube.com/watch?v=BRsCvTMLEr8",  "titulo":"disenho para crianças", 
+ "comentarios": [ 
+ { 
+ "comentario":"esse disenho é ben legal",  "cpf":"444.444.444-44" 
+ }, 
+ { 
+ "comentario":"meu filho adora o disenho",  "cpf":"111.111.111-11" 
+ }], 
+ "cpf":"555.555.555-55", 
+ "data_criaçao":"(2088,01,17)" 
+} 
+]) 
+db.amigos.insertMany([ 
+{ 
+ "usuario_cpf":"111.111.111-11", 
+ "amigos": [ 
+ { 
+ "cpf":"111.111.111-01", 
+ "nome":"javier", 
+ "sobrenome":"calero" 
+ }, 
+ { 
+ "cpf":"111.111.111-02", 
+ "nome":"nakor",
+ "sobrenome":"aruebarrena"  }] 
+}, 
+{ 
+ "usuario_cpf":"222.222.222-22",  "amigos": [ 
+ { 
+ "cpf":"222.222.222-01",  "nome":"arminda",  "sobrenome":"caceres"  }, 
+ { 
+ "cpf":"222.222.222-02",  "nome":"marianny",  "sobrenome":"duque"  }] 
+}, 
+{ 
+ "usuario_cpf":"333.333.333-33",  "amigos": [ 
+ { 
+ "cpf":"333.333.333-01",  "nome":"moroni",  "sobrenome":"perez"  }, 
+ { 
+ "cpf":"333.333.333-01",  "nome":"david", 
+ "sobrenome":"alvarez"  }] 
+}, 
+{ 
+ "usuario_cpf":"555.555.555-55",  "amigos": [ 
+ { 
+ "cpf":"555.555.555-01",  "nome":"bayita",  "sobrenome":"alvarez"  }, 
+ { 
+ "cpf":"555.555.555-02",  "nome":"adriana",  "sobrenome":"fernandez"  }] 
+}, 
+{ 
+ "usuario_cpf":"444.444.444-44",  "amigos": [ 
+ {
+ "cpf":"444.444.444-01",  "nome":"edgar", 
+ "sobrenome":"berroeta"  }, 
+ { 
+ "cpf":"444.444.444-02",  "nome":"henrry", 
+ "sobrenome":"perez"  }] 
+} 
+]) 
+db.grupos.insertMany([ 
+ { 
+ "nome":"grupo da familia",  "usuarios":[ 
+ {"cpf":"111.111.111-11"},  {"cpf":"222.222.222-22",},  {"cpf":"333.333.333-33",},  {"cpf":"555.555.555-55"}  ] 
+ }, 
+ { 
+ "nome":"grupo de amigos",  "usuarios":[ 
+ {"cpf":"111.111.111-111"},  {"cpf":"111.111.111-01",},  {"cpf":"111.111.111-02",},  {"cpf":"333.333.333-01"} 
+ ] 
+ }, 
+ { 
+ "nome":"grupo da empresa",  "usuarios":[ 
+ {"cpf":"444.444.444-44"},  {"cpf":"444.444.444-02",},  {"cpf":"111.111.111-01",},  {"cpf":"333.333.333-01"}  ] 
+ }, 
+ { 
+ "nome":"grupo da igreja",  "usuarios":[ 
+ {"cpf":"555.555.555-55"},  {"cpf":"555.555.555-01",},  {"cpf":"555.555.555-02",},  {"cpf":"222.222.222-22"}  ] 
+ },
+ { 
+ "nome":"grupo do GYM", 
+ "usuarios":[ 
+ {"cpf":"222.222.222-22"}, 
+ {"cpf":"222.222.222-01",}, 
+ {"cpf":"222.222.222.02",}, 
+ {"cpf":"555.555.555-55"} 
+ ] 
+ } 
+]) 
+
+//listando dados duma forma mais organizada 
+db.usuario.find().pretty() 
+db.post.find().pretty() 
+db.grupo.find().pretty() 
+db.amigos.find().pretty() 
+
+//listando dados utilizando operaçoes adicionais 
+db.usuarios.find({"idade": {$gte: 29}}).pretty() 
+db.post.find({titulo: {$in: ["naturaleza","amor"]}}).pretty() db.amigos.find({amigos:{$elemMatch:{sobrenome:"fernandez"}}}).pretty() db.grupos.find().limit(2).skip(2).pretty() 
+
+    //actualizaçao de campo 
+db.usuarios.updateOne({idade: {$eq: 28}},{$set: {"sobrenome": "arruebarre na"}}) 
+
+//deletando um documento 
+db.grupos.deleteOne({nome:"grupo do GYM"}) 
+
+//confirmando que foi deletado 
+db.grupos.find().pretty() 
+
+//deletando collection 
+db.grupos.drop() 
+
+//confirmando que a collection foi deletada 
+show collections //deu certo!
